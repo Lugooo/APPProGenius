@@ -1,0 +1,49 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.formulario {
+    margin-top: 5rem;
+    text-align: center;
+    overflow: hidden;
+    .campo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        gap: 2rem;
+
+        label {
+            display: none;
+
+            @include m.tablet {
+                display: block;
+                flex: 0 0 10rem;
+                text-align: left;
+                color: v.$gris;
+            }
+        }
+
+        input:not([type="submit"]) {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 1rem;
+            border-bottom: 0.2rem solid v.$verde;
+            background-color: transparent;
+            color: v.$gris;
+            transition: all 0.3s ease-in;
+
+            &:focus {
+                border-color: v.$cafeClaro
+            }
+
+            &::placeholder {
+                color: v.$gris;
+            }
+        }
+    }
+
+    .boton {
+        @include m.boton(v.$verde, v.$verdeClaro);
+        background-color: transparent;
+      }
+}

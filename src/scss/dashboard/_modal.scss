@@ -1,0 +1,86 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.modal {
+  position: fixed;
+  padding: 2rem;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: all 0.8s ease;
+  pointer-events: auto;
+
+  .formulario {
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    opacity: 0;
+    background-color: v.$blanco;
+    padding: 2rem;
+    margin: 0;
+    transform: translateX(-200%);
+    transition: all 0.8s ease;
+
+    @include m.tablet {
+      max-width: 60rem;
+      margin: 0 auto;
+    }
+
+    &.animar {
+      position: relative;
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    &.cerrar {
+      transform: translateY(-200%);
+      opacity: 0;
+    }
+
+    legend {
+      color: v.$verde;
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .opciones {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      @include m.tablet {
+        justify-content: space-between;
+        gap: 2rem;
+      }
+
+      .submit-editar-proyecto {
+        @include m.boton(v.$verde, v.$verdeClaro);
+        background-color: transparent;
+      }
+
+      .submit-nueva-tarea {
+        @include m.boton(v.$verde, v.$verdeClaro);
+        background-color: transparent;
+        margin-bottom: 2rem;
+
+        @include m.tablet {
+          margin-bottom: 0;
+        }
+      }
+
+      .cerrar-modal {
+        @include m.boton(v.$cafeClaro, v.$verde);
+        background-color: transparent;
+      }
+    }
+  }
+}

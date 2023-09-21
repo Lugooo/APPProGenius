@@ -1,0 +1,60 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.filtros {
+    margin: 2rem 0;
+    padding: 2rem 0;
+    border-radius: .5rem;
+    background-color: v.$verde;
+
+    @include m.tablet {
+        display: grid;
+        grid-template-areas: "filtros categorias categorias";
+        align-items: center;
+    }
+
+    h2 {
+        font-size: 2rem;
+        grid-area: filtros;
+        margin-bottom: 1rem;
+        color: v.$blanco;
+        
+        @include m.tablet{
+            margin-bottom: 0;
+        }
+    }
+
+    .filtros-inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 2rem;
+
+        @include m.tablet {
+            grid-area: categorias;
+            justify-content: space-around;
+            flex-direction: row;
+        }
+
+        .campo{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            label{
+                color: v.$blanco;
+                flex: 1;
+                text-align: justify;
+                cursor: pointer;
+            }
+            
+            input[type="radio"]{
+                cursor: pointer;
+                accent-color: v.$cafeClaro;
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+           
+        }
+    }
+}

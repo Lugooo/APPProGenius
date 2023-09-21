@@ -1,0 +1,140 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.sidebar {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  height: 0;
+  overflow: hidden;
+  background-color: lighten(v.$verde, 5%);
+  text-align: center;
+  transition: all 0.5s ease;
+
+  &.mostrar {
+    padding: 2rem;
+    opacity: 1;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(v.$negro, 95%);
+
+    @include m.telefono {
+      display: none;
+    }
+
+    .sidebar-nav {
+      text-align: center;
+
+      .link {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        width: 100%;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        gap: 1rem;
+        transition: background-color 0.5s ease;
+
+        &:hover,
+        &.activo {
+          background-color: darken(v.$negro, 5%);
+          border-radius: 0.5rem;
+        }
+        .icon {
+          color: v.$blanco;
+        }
+        a {
+          color: v.$blanco;
+        }
+      }
+    }
+  }
+
+  @include m.telefono {
+    position: relative;
+    display: block;
+    top: 0;
+    bottom: 0;
+    opacity: 1;
+    height: 100%;
+    padding: 2rem;
+  }
+
+  .contenedor-sidebar {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+    @include m.telefono {
+      display: block;
+    }
+    h2 {
+      color: v.$naranja;
+      margin: 0;
+
+      @include m.telefono {
+        color: v.$blanco;
+      }
+    }
+
+    #cerrar-menu {
+      color: v.$blanco;
+      font-size: 3.4rem;
+      cursor: pointer;
+      transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+
+      &:hover {
+        color: v.$gris;
+        transform: scale(1.2);
+      }
+
+      @include m.telefono {
+        display: none;
+      }
+    }
+  }
+
+  .sidebar-nav {
+    text-align: justify;
+
+    .link {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 1rem;
+      color: v.$blanco;
+      font-size: 1.8rem;
+      transition: background-color 0.5s ease;
+
+      &:hover,
+      &.activo {
+        background-color: darken(v.$cafeClaro, 5%);
+        border-radius: 0.5rem;
+      }
+      .icon {
+        min-width: 2rem;
+      }
+      a {
+        font-size: 2.4rem;
+        border-radius: 1rem;
+        color: v.$negro;
+        font-weight: bold;
+        transition: color 0.5s ease;
+
+        &:hover {
+          color: v.$blanco;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.mensaje-background {
+
+    .mensaje {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+
+        @include m.tablet {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .izquierda {
+            text-align: center;
+            position: relative;
+            .uptask {
+                @include m.textoDegradado(v.$cafeClaro);
+            }
+
+            .nav {
+                .boton {
+                    @include m.boton(v.$verde, v.$verdeClaro);
+                    background-color: transparent;
+                  }
+            }
+        }
+
+        .derecha {
+            padding: 2rem;
+
+            p {
+                font-weight: bold;
+                color: v.$verdeClaro;
+            }
+        }
+    }
+}

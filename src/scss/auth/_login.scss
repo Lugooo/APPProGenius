@@ -1,0 +1,56 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.login-background {
+  .login {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    @include m.tablet {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .izquierda {
+      text-align: center;
+      position: relative;
+      .uptask {
+        @include m.textoDegradado(v.$cafeClaro);
+      }
+
+      .nav {
+        .boton {
+          padding: 1rem 4rem;
+          background-color: v.$cafeClaro;
+          color: v.$blanco;
+          transition: all 0.5s ease-in-out;
+
+          &:hover {
+            transform: scale(1.1);
+            transition: transform 0.5s ease-in-out;
+          }
+        }
+      }
+    }
+
+    .derecha {
+      padding: 2rem;
+
+      .boton {
+        @include m.boton(v.$verde, v.$verdeClaro);
+        background-color: transparent;
+      }
+
+      .acciones {
+        text-align: center;
+        a {
+          color: v.$verdeClaro;
+          transition: color 0.5s ease;
+        }
+      }
+    }
+  }
+}

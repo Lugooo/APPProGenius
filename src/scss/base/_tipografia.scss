@@ -1,0 +1,53 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: v.$fuente_headings;
+    margin: 0 0 calc(v.$separacion / 2) 0;
+    font-weight: 900;
+}
+h1 {
+    font-size: 10vw;
+
+    @include m.tablet{
+        font-size: 5vw;
+    }
+}
+h2 {
+    font-size: 2.5rem;
+}
+h3 {
+    font-size: 2.2rem;
+}
+p {
+    font-size: 1.8rem;
+    color: v.$gris;
+    line-height: 1.5;
+    font-weight: 200;
+}
+
+h1, h2, h3, h4, a, p, label, input, span{
+    &::selection{
+        color: v.$verdeClaro;
+        background-color: v.$verde;
+    }
+}
+
+.tagline {
+    font-family: v.$fuente_headings;
+    color: v.$gris;
+    text-align: center;
+}
+
+.descripcion-pagina {
+    text-align: center;
+    font-size: 3rem;
+    margin: 0;
+    margin-bottom: 2rem;
+    font-family: v.$fuente_headings;
+    color: v.$verde;
+    line-height: 3rem;
+}

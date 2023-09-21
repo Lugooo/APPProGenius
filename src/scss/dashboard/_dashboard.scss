@@ -1,0 +1,66 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.dashboard {
+    height: 100%;
+    transition: all .5s ease;
+
+    @include m.telefono {
+        height: 100vh;
+    }
+
+    @include m.telefono {
+        display: flex;
+    }
+
+    .principal {
+        flex: 1;
+        min-height: 100vh;
+
+        .dark {
+            position: fixed;
+            bottom: 2rem;
+            right: 4rem;
+            font-size: 2rem;
+            color: v.$negro;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: 100;
+            border: .2rem;
+            border-radius: .5rem;
+            padding: .4rem;
+            background-color: v.$blanco;
+
+            &:hover {
+                transform: scale(1.2);
+                color: v.$naranja;
+                cursor: pointer;
+            }
+        }
+
+        @include m.telefono {
+            overflow: scroll;
+        }
+    }
+
+    .contenido {
+        padding: 2rem;
+        text-align: center;
+        .nombre-pagina {
+            font-size: 3rem;
+            color: v.$verde;
+        }
+    }
+
+    .enlace {
+        display: block;
+        text-align: left;
+        color: v.$verdeClaro;
+        font-size: 2rem;
+        font-weight: bold;
+        transition: color 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+
+        &:hover {
+            color: darken(v.$verdeClaro, 5%);
+        }
+    }
+}

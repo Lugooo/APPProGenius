@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",(function(){!async function(){try{const o="/api/proyectos",n=await fetch(o);await n.json(),console.log(n)}catch(o){console.log(o)}}()}));

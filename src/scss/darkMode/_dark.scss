@@ -1,0 +1,118 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.darkMode {
+  background-color: lighten(v.$negro, 10%);
+
+  .sidebar {
+    background-color: lighten(v.$negro, 10%);
+    box-shadow: 0.1rem 0 0.9rem 0 rgba(0, 0, 0, 0.4);
+
+    .contenedor-sidebar {
+      a {
+        h2{
+            color: v.$verde;
+        }
+      }
+    }
+
+    .sidebar-nav {
+      .link {
+        color: v.$blanco;
+        &:hover,
+        &.activo {
+          background-color: darken(v.$azuClaro, 5%);
+          border-radius: 0.5rem;
+        }
+
+        a {
+          color: v.$blanco;
+        }
+      }
+    }
+  }
+
+  .principal {
+    .barra {
+      background-color: lighten(v.$negro, 10%);
+
+      p {
+        color: v.$azuClaro;
+      }
+
+      .cerrar-sesion {
+        border: 0.1rem solid v.$azuClaro;
+
+        &:hover {
+          background-color: v.$azuClaro;
+        }
+      }
+    }
+
+    .barra-mobile {
+      background-color: lighten(v.$negro, 10%);
+    }
+
+    .contenido {
+      .nombre-pagina {
+        color: v.$azuClaro;
+      }
+
+      label {
+        color: v.$azuClaro;
+      }
+
+      input:not([type="submit"]) {
+        background-color: transparent;
+
+        &::placeholder {
+          color: v.$blanco;
+        }
+      }
+
+      .agregar-tarea {
+        border: 0.1rem solid v.$azuClaro;
+
+        &:hover {
+          background-color: v.$azuClaro;
+        }
+      }
+
+      .filtros {
+        background-color: transparent;
+        h2 {
+          color: v.$azuClaro;
+        }
+      }
+    }
+  }
+
+  .modal {
+    .formulario {
+      background-color: lighten(v.$negro, 10%);
+
+      input {
+        background-color: transparent;
+
+        &::placeholder {
+          color: v.$gris;
+        }
+
+        &:focus {
+          background-color: transparent;
+          border-color: v.$verdeClaro;
+        }
+      }
+    }
+  }
+
+  .proyecto__opciones {
+    .boton__ver {
+      color: v.$blanco;
+    }
+
+    .boton__actualizar {
+      color: v.$verdeClaro;
+    }
+  }
+}

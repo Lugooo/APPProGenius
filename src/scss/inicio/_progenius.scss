@@ -1,0 +1,63 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.global {
+  .progenius {
+    text-align: center;
+    padding-top: 2rem;
+    h1 {
+      text-align: center;
+      color: v.$verde;
+    }
+
+    .banner {
+      display: flex;
+      flex-direction: column-reverse;
+
+      @include m.tablet {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .contenido {
+        padding: 0 2rem;
+        p {
+          color: v.$gris;
+
+          span {
+            color: v.$verdeClaro;
+            font-weight: 600;
+          }
+        }
+
+        #imagen {
+          img {
+            display: block;
+            max-width: 70%;
+            height: 60%;
+            margin: 0 auto;
+          }
+        }
+
+        .nav {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+
+          @include m.tablet {
+            flex-direction: row;
+          }
+          .boton {
+            @include m.boton(v.$verde, v.$verdeClaro);
+            width: 50%;
+            margin: 0 auto;
+            padding: 1.4rem 0;
+          }
+        }
+      }
+    }
+  }
+}
+

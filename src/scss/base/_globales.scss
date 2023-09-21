@@ -1,0 +1,49 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+::-webkit-scrollbar {
+  width: 1.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: v.$verdeClaro;
+  border: 1rem;
+  transition: all 0.3s ease-in;
+
+  &:hover {
+    background-color: darken(v.$verde, 8%);
+  }
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    height: 100%;
+}
+body {
+    font-family: v.$fuente_textos;
+    font-size: 1.6rem;
+    min-height: 100%;
+}
+.contenedor {
+    width: 90%;
+    margin: 0 auto;
+    
+    @include m.tablet{
+        width: 80%;
+        max-width: 140rem;
+    }
+}
+.contenedor-sm {
+    max-width: 70rem;
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+}
